@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway 手機點餐系統</title>
+    <link rel="stylesheet" href="normalize.css">
+    
+    <!-- 在 HTML 的 <head> 裡面貼上這行   瀏覽器就會用預設字型替代-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+
+</head>
+
+<body> 
+
+    <!-- 手機頂部狀態列 -->
+    <div class="status-bar">
+        <div class="time">9:41</div>
+    <!-- 中央鏡頭/挖孔 -->
+        <div class="camera-notch"></div>
+        <div class="status-icons">
+            <span class="icon-signal">📶</span>
+            <span class="icon-wifi">📶</span>
+            <span class="icon-battery">🪫</span>
+        </div>
+    </div>
+
+    <header class="navbar">
+    <!--左邊LOGO -->
+    <div class="logo">
+        <img src="assets/images/logo.svg" alt="SUBWAY">
+    </div>
+
+    <!--中間標題 -->
+    <div class="title">開始點餐</div>
+
+     <!--右邊訂單內容(ICON+TEXT) -->
+    <div class="order-summary" id="orderContentBtn" style="cursor: pointer;">
+        <span class="order-icon"><img src="assets/Icon/order.svg" alt="訂單內容"></span>
+        <span class="icon-text">訂單內容</span>
+    </div>
+    </header>
+<!-- 8個步驟水平滑動切換分頁 -->
+    <div class="step-tabs">
+        <button class="tab-btn active">步驟1.選擇麵包 / 沙拉</button>
+        <button class="tab-btn">步驟2.選擇麵包尺寸 / 口味</button>
+        <button class="tab-btn">步驟3.選擇餐點口味</button>
+        <button class="tab-btn">步驟4.選擇加量/加料(需要加價)</button>
+        <button class="tab-btn">步驟5.選擇蔬菜(最多選擇5種)</button>
+        <button class="tab-btn">步驟6.選擇醬料(最多選擇2種)</button>
+        <button class="tab-btn">步驟7.是否加購搭配套餐</button>
+        <button class="tab-btn">步驟8.隨心點/飲料</button>
+    </div>
+
+    <main class="main-content">
+
+    
+    <!-- 選項卡片區塊 (以步驟1為例) -->
+    <div class="options-grid">
+
+        <!-- 麵包選項卡片 -->
+        <div class="card">
+            <div class="card-image">
+                <img src="assets/images/bread.png" alt="麵包">
+                <div class="radio-circle"></div>
+            </div>
+            <span class="card-text">麵包</span>
+        </div>
+
+        <!-- 沙拉選項卡片 -->
+        <div class="card">
+            <div class="card-image">
+                <img src="assets/images/salad.png" alt="沙拉">
+                <div class="radio-circle"></div>
+            </div>
+            <span class="card-text">沙拉</span>
+        </div>
+    </div>
+    
+    
+</main>
+
+<footer class="button-area">
+    <button class="next-btn">下一步 →</button>
+</footer>
+
+<!-- 訂單內容彈視窗 Modal -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal-content">
+    <!-- 頂部標題與關閉按鈕 -->
+    <div class="modal-header">
+      <div>
+        <h3 class="table-num">內用桌號:03</h3>
+        <h4 class="order-title">訂單內容</h4>
+      </div>
+      <button class="close-btn" id="closeModalBtn">&times;</button>
+    </div>
+
+    <!-- 訂單列表區域 -->
+    <div class="modal-body">
+      <p class="empty-msg">尚未點餐點，請點擊【繼續點餐】進行點餐</p>
+    </div>
+
+    <!-- 底部金額與按鈕 -->
+    <div class="modal-footer">
+      <div class="total-summary">
+        已點 <span id="itemCount">0</span> 份餐點 總金額 $ <span id="totalPrice">0</span>
+      </div>
+      <div class="footer-btns">
+        <button class="btn-continue" id="continueBtn">&larr; 繼續點餐</button>
+        <button class="btn-checkout" disabled>結帳 &rarr;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
