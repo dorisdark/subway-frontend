@@ -1,0 +1,94 @@
+
+.content {
+    display: flex;             /* 1. 宣告為 Flex 容器 */
+    flex-direction: column;    /* 2. 設定為垂直上下排列 */
+    flex: 1; /* 讓內容區域自動填滿剩餘空間 */
+    overflow-y: auto; /* 當內容超出高度時，允許垂直滾動 */
+    background-color: #88eb7f;
+    padding: 24px 16px;
+    gap:8px;
+}
+
+.hero-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px; /* 設定橫幅高度 */
+    overflow: hidden; /* 隱藏超出範圍的部分 */
+    border-radius: 10px; /* 可選：圓角效果 */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 可選：陰影效果 */
+}
+
+.slogin-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    /*background-color: #beb7e4;*/
+    padding: 24px 16px;
+   
+}
+
+.logo-text {
+    
+    font-size: 52px;
+    line-height: 67px;
+    font-family: "Arial", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.sub {
+    color: #FFC20D;
+    text-shadow: 0px 1px 2px  rgba(43, 43, 43, 1);
+}
+
+.way {
+    color: #028940;
+    text-shadow: 0px 1px 2px  rgba(43, 43, 43, 1);
+}
+
+.slogin-section p {
+    font-size: 12px;
+    line-height: 16px;
+    color: #2B2B2B;
+}
+
+.order-type{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 12PX 0px;
+    gap: 16px;
+    font-size: 24px;
+    line-height: 32px;
+    color: #000000;
+
+}
+
+.order-type button{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 300px;
+    height: 48px;
+    padding: 4px 8px;
+    border-radius: 5px;
+
+}
+
+.dine-in {
+    border: none;
+    background-color: #028940;
+    color: white;
+}
+
+.takeout {
+    border: 2px solid #028940;
+    color: #028940;
+    background-color: white;
+}
+
