@@ -4,7 +4,7 @@
     flex-direction: column;    /* 2. 設定為垂直上下排列 */
     flex: 1; /* 讓內容區域自動填滿剩餘空間 */
     overflow-y: auto; /* 當內容超出高度時，允許垂直滾動 */
-    background-color: #88eb7f;
+    /*background-color: #88eb7f;*/
     padding: 24px 16px;
     gap:8px;
 }
@@ -20,7 +20,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 可選：陰影效果 */
 }
 
-.slogin-section {
+.Slogan-section {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subway 手機點餐 練習</title>
+    <title>Subway 手機點餐統</title>
 
     <!-- reset.css跟normalize.css 都是網頁初始化CSS檔案，專案一開始都要寫入 -->
     <!-- <link rel="stylesheet" href="./reset.css"> -->
@@ -14,11 +14,10 @@
 </head>
 
 <body>
-    <div class="phone-container">
+<div class="phone-container">
   
   <!-- 1. Status bar (頂部狀態列) -->
     <div class="status-bar">
-    <!-- 狀態列內容 (時間、電量等) -->
         <p class="time">12:00</p>
         <div class="status-icons">
             <span class="signal"><img src="Assets/icon/signal.svg"></span>
@@ -27,10 +26,6 @@
         </div>
     </div>
 
-  
-    
-
-
   <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
     <main class="content">
     <!-- Banner -->
@@ -38,22 +33,27 @@
         <img src="Assets/img/Banner.svg" alt="Subway Banner">
      </div>
      
-    <!-- slogin -->
-     <div class="slogin-section">
+    <!-- Slogan -->
+     <div class="Slogan-section">
         <div class="logo-text"><span class="sub">Sub</span><span class="way">way</span></div>
         <p>把美味帶著走，隨時隨地享受星級饗宴</p>
      </div>
 
      <div class="order-type">
         <div class="order-title">請選擇用餐方式</div>
-        <button class="dine-in"><img src="Assets/icon/dine-in.svg">內用</button>
-        <button class="takeout"><img src="Assets/icon/takeout.svg">外帶</button>
+        <!--type="button" 建立type為button，純按鈕的意思，沒有表單提交功能-->
+        <button type="button" class="dine-in" id="btn-dine-in">
+            <img src="Assets/icon/dine-in.svg" alt="內用">
+            內用
+        </button>
+        <button type="button" class="takeout" id="btn-takeout">
+            <img src="Assets/icon/takeout.svg" alt="外帶">
+            外帶
+        </button>
     </div>
-   
-
     </main>
 
-  <!-- 3. Building Blocks/navigation (底部導覽列) -->
+    <!--3. Building Blocks/navigation (底部導覽列) -->
     <nav class="bottom-nav-bar">
     <!-- 底部導覽按鈕 -->
         <button class="nav-btn_apps" aria-label="Recents"></button>
@@ -62,6 +62,6 @@
     </nav>
 
 </div>
-   
+<script src="JS/index.js"></script>
 </body>
 </html>

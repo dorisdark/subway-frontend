@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway 座位掃碼點餐</title>
+    
+   <!-- reset.css跟normalize.css 都是網頁初始化CSS檔案，專案一開始都要寫入 -->
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/scanner.css">
+
+    <!-- 引入開源相機掃描庫 (html5-qrcode) -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+
+</head>
+<body>
+<div class="phone-container">
+  
+  <!-- 1. Status bar (頂部狀態列) -->
+    <div class="status-bar">
+    <!-- 狀態列內容 (時間、電量等) -->
+        <p class="time">12:00</p>
+        <div class="status-icons">
+            <span class="signal"><img src="Assets/icon/signal.svg"></span>
+            <span class="wi-fi"><img src="Assets/icon/wifi.svg"></span>
+            <span class="battery"><img src="Assets/icon/battery.svg"></span>
+        </div>
+    </div>
+
+  
+    <header class="header">
+        <span class="brand-logo"><img src="Assets/img/Logo.png"></span>
+        <div class="header-title">座位掃碼點餐</div>
+        <span class="order-summary">
+            <span class="order-icon"><img src="Assets/icon/order.svg" alt="訂單內容 icon"></span>
+            <p class="order-text">訂單內容</p>
+        </span>
+    </header>
+    
+  <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
+    <main class="content">
+        <div class="scanner-section">
+            <div class="scanner-title">
+                <button class="scanner-back-icon" id="back to index" aria-label="返回">
+                    <img src="Assets/icon/left-arrow.svg" alt="返回">
+                </button>
+                <span class="scanner-title-text">請掃描座位邊的QRcode</span>
+            </div>
+
+            <!-- 掃描器容器：內部必須包含一個供套件渲染的 id="reader" -->
+            <div class="scanner-container">
+                <div id="reader"></div>
+                <div class="scan-frame-box">
+                    <div class="scanner-line"></div>
+                </div>
+            </div>
+            <div class="scanner-text">
+                <p>請將座號QRcode置於框中</p>
+                <p>訂單會依接單次序製作，餐點完成後將會通知你取餐</p>
+                <p>餐點現做製作時間較長，請耐心等候，謝謝!</p>
+            </div>
+        </div>  
+    </main>
+    
+  <!-- 3. Building Blocks/navigation (底部導覽列) -->
+    <nav class="bottom-nav-bar">
+    <!-- 底部導覽按鈕 -->
+        <button class="nav-btn_apps" aria-label="apps"></button>
+        <button class="nav-btn_home" aria-label="Home"></button>
+        <button class="nav-btn_back" aria-label="Back"></button>
+    </nav>
+</div>
+
+ <script src="JS/Scanner.js"></script>
+
+</body>
+</html>
