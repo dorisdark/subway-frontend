@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const btnBackHome = document.getElementById('back to index');
+    const btnBackHome = document.getElementById('BackToIndex');
     let html5QrCode = null;
 
     // 初始化相機
@@ -42,6 +42,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const btnManualInput = document.getElementById('BtnManualInput');
+
+    if (btnManualInput) {
+    btnManualInput.addEventListener('click', () => {
+        console.log('按鈕被點擊了！'); // 打開瀏覽器 F12 主控台看有沒有印出這行
+        stopAndRedirect('manual.html'); // 或換成你想跳轉的頁面
+    });
+}
+
     // 啟動相機
     startCamera();
 });
+

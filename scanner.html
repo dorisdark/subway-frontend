@@ -44,7 +44,7 @@
     <main class="content">
         <div class="scanner-section">
             <div class="scanner-title">
-                <butto class="scanner-back-icon" id="back to index" aria-label="返回">
+                <butto class="scanner-back-icon" id="BackToIndex" aria-label="返回">
                     <img src="Assets/icon/left-arrow.svg" alt="返回">
                 </butto>
                 <span class="scanner-title-text">請掃描座位邊的QRcode</span>
@@ -56,10 +56,16 @@
                     <div class="scanner-line"></div>
                 </div>
             </div>
-            <div class="scanner-text">
+            <div class="manual-input-container">
+                    <button type="button" class="manual-btn" id="BtnManualInput">
+                        <span class="material-icons"><img src="Assets/icon/Click.svg" alt="手動輸入"></span>
+                        <span class="material-text">手動輸入桌號</span>
+                    </button>
+            </div>
+            <div class="scanner-text">  
                 <p>請將座號QRcode置於框中</p>
                 <p>訂單會依接單次序製作，餐點完成後將會通知你取餐</p>
-                <p>餐點現做製作時間較長，請耐心等候，謝謝!</p>
+                <p>餐點現做製作時間較長，請耐心等候，謝謝!
             </div>
         </div>  
     </main>

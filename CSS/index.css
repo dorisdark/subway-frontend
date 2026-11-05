@@ -17,7 +17,6 @@
     height: 200px; /* 設定橫幅高度 */
     overflow: hidden; /* 隱藏超出範圍的部分 */
     border-radius: 10px; /* 可選：圓角效果 */
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 可選：陰影效果 */
 }
 
 .Slogan-section {

@@ -67,7 +67,7 @@ header{
     display: flex;
     flex-direction: column;
     width: 100%;            /* 讓寬度吃滿父層 */
-    max-width: 384px;       /* 限制最大手機寬度（對應你的設計尺寸） */
+    /*max-width: 384px;       /* 限制最大手機寬度（對應你的設計尺寸） */
     height: 100vh;          /* 強制高度佔滿整個視窗高度 */
     /*background-color: #B7DAE4;*/
 }

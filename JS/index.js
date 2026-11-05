@@ -1,4 +1,4 @@
-const btnDineIn = document.getElementById('btn-dine-in');
+const btnDineIn = document.getElementById('BtnDineIn');
 
 if (btnDineIn) {
     btnDineIn.addEventListener('click', () => {

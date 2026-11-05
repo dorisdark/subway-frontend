@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway 手機點餐統</title>
+
+    <!-- reset.css跟normalize.css 都是網頁初始化CSS檔案，專案一開始都要寫入 -->
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/manual.css">
+</head>
+
+<body>
+<div class="phone-container">
+  
+  <!-- 1. Status bar (頂部狀態列) -->
+    <div class="status-bar">
+        <p class="time">12:00</p>
+        <div class="status-icons">
+            <span class="signal"><img src="Assets/icon/signal.svg"></span>
+            <span class="wi-fi"><img src="Assets/icon/wifi.svg"></span>
+            <span class="battery"><img src="Assets/icon/battery.svg"></span>
+        </div>
+    </div>
+
+  <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
+    <main class="content">
+    <!-- Banner -->
+        <div class="hero-banner">
+            <img src="Assets/img/Banner.svg" alt="Subway Banner">
+        </div>
+        <div class="manual-input-section">
+                <span class="manual-title-text">手動輸入桌號</span>
+                <form class="manual-form" id="manualForm">
+                <div class="manual-form-group">
+                    
+                </div>
+                <div class="manual-form-group">
+                    <label for="tableNumberInput">內用桌號</label>
+                    <input type="text" class="table-number-input" id="TableNumberInput" name="TableNumber" placeholder="請輸入桌號" required>
+                </div>
+                </form>
+            </div>
+        <div class="manual-buttons">
+                <button class="manual-back-btn" id="BackToScanner">返回</button>
+                <button type="submit" form="manualForm" class="submit-btn">確認</button>
+        </div>
+    </main>
+
+    <!--3. Building Blocks/navigation (底部導覽列) -->
+    <nav class="bottom-nav-bar">
+    <!-- 底部導覽按鈕 -->
+        <button class="nav-btn_apps" aria-label="Recents"></button>
+        <button class="nav-btn_home" aria-label="Home"></button>
+        <button class="nav-btn_back" aria-label="Back"></button>
+    </nav>
+
+</div>
+<script src="JS/index.js"></script>
+</body>
+</html>
