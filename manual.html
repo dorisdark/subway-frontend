@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-tw">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,51 +15,89 @@
 </head>
 
 <body>
-<div class="phone-container">
-  
-  <!-- 1. Status bar (頂部狀態列) -->
-    <div class="status-bar">
-        <p class="time">12:00</p>
-        <div class="status-icons">
-            <span class="signal"><img src="Assets/icon/signal.svg"></span>
-            <span class="wi-fi"><img src="Assets/icon/wifi.svg"></span>
-            <span class="battery"><img src="Assets/icon/battery.svg"></span>
-        </div>
-    </div>
+    <div class="phone-container">
 
-  <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
-    <main class="content">
-    <!-- Banner -->
-        <div class="hero-banner">
-            <img src="Assets/img/Banner.svg" alt="Subway Banner">
+        <!-- 1. Status bar (頂部狀態列) -->
+        <div class="status-bar">
+            <p class="time">12:00</p>
+            <div class="status-icons">
+                <span class="signal"><img src="Assets/icon/signal.svg"></span>
+                <span class="wi-fi"><img src="Assets/icon/wifi.svg"></span>
+                <span class="battery"><img src="Assets/icon/battery.svg"></span>
+            </div>
         </div>
-        <div class="manual-input-section">
+
+        <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
+        <main class="content">
+            <!-- Banner -->
+            <div class="hero-banner">
+                <img src="Assets/img/Banner.svg" alt="Subway Banner">
+            </div>
+            <div class="manual-input-section">
                 <span class="manual-title-text">手動輸入桌號</span>
-                <form class="manual-form" id="manualForm">
-                <div class="manual-form-group">
-                    
-                </div>
-                <div class="manual-form-group">
-                    <label for="tableNumberInput">內用桌號</label>
-                    <input type="text" class="table-number-input" id="TableNumberInput" name="TableNumber" placeholder="請輸入桌號" required>
-                </div>
+                <form class="manual-form" id="ManualForm">
+                    <div class="manual-form-group custom-dropdown">
+                        <label class="storename-label">內用門市</label>
+                        <div class="dropdown-trigger" id="UnifiedTrigger">
+                            <span class="selected-value placeholder" id="UnifiedDisplayText">請選擇門市</span>
+                            <span class="dropdown-icon"><img src="Assets/icon/down-arrow.svg"></span>
+                        </div>
+
+                        <!-- 💡 加上這一行：隱藏的 input，用來讓 form 抓到門市資料 -->
+                        <input type="hidden" id="selectedStoreInput" name="Store" required>
+                        
+                        <!-- 底部彈出的整合式選擇面板 (Bottom Sheet) -->
+                        <div class="bottom-sheet-overlay" id="SheetOverlay">
+                            <div class="bottom-sheet-content">
+                                <div class="sheet-header">
+                                    <h3>選擇門市</h3>
+                                    <button class="sheet-close" id="SheetClose">✕</button>
+                                </div>
+
+                                <!-- 內部分為三個互動區塊：縣市、區域、門市 -->
+                                <div class="cascader-container">
+                                    <!-- 第一欄：縣市 -->
+                                    <div class="cascader-column">
+                                        <div class="column-title">縣市</div>
+                                        <ul class="cascader-list" id="CityList"></ul>
+                                    </div>
+                                    <!-- 第二欄：區域 -->
+                                    <div class="cascader-column">
+                                        <div class="column-title">區域</div>
+                                        <ul class="cascader-list" id="DistrictList"></ul>
+                                    </div>
+                                    <!-- 第三欄：門市 -->
+                                    <div class="cascader-column">
+                                        <div class="column-title">門市</div>
+                                        <ul class="cascader-list" id="StoreList"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="manual-form-group">
+                        <label for="tableNumberInput">內用桌號</label>
+                        <input type="text" class="table-number-input" id="TableNumberInput" name="TableNumber"
+                            placeholder="請輸入桌號" required>
+                    </div>
                 </form>
             </div>
-        <div class="manual-buttons">
+            <div class="manual-buttons">
                 <button class="manual-back-btn" id="BackToScanner">返回</button>
-                <button type="submit" form="manualForm" class="submit-btn">確認</button>
-        </div>
-    </main>
+                <button type="submit" form="ManualForm" class="submit-btn">確認</button>
+            </div>
+        </main>
 
-    <!--3. Building Blocks/navigation (底部導覽列) -->
-    <nav class="bottom-nav-bar">
-    <!-- 底部導覽按鈕 -->
-        <button class="nav-btn_apps" aria-label="Recents"></button>
-        <button class="nav-btn_home" aria-label="Home"></button>
-        <button class="nav-btn_back" aria-label="Back"></button>
-    </nav>
+        <!--3. Building Blocks/navigation (底部導覽列) -->
+        <nav class="bottom-nav-bar">
+            <!-- 底部導覽按鈕 -->
+            <button class="nav-btn_apps" aria-label="Recents"></button>
+            <button class="nav-btn_home" aria-label="Home"></button>
+            <button class="nav-btn_back" aria-label="Back"></button>
+        </nav>
 
-</div>
-<script src="JS/index.js"></script>
+    </div>
+    <script src="JS/manual.js"></script>
 </body>
+
 </html>

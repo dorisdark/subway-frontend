@@ -39,10 +39,17 @@
     color: #212529;
 }
 
+label {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #2B2B2B;
+}
+
 .manual-form-group {
     display: flex;
     flex-direction: column;
-    padding: 4px 0;
+    padding: 4px 0px;
     gap: 8px;
     width: 100%;
     font-size: 16px;
@@ -50,16 +57,125 @@
     font-weight: 700;
     color: #2B2B2B;
 }
-
-.store-name-select {
-    width: 100%;
-    border: 1px solid #CCCCCC;
-    border-radius: 4px;
-    font-size: 16px;
-    line-height: 24px;
-    color: #2B2B2B;
-    border:none;
+.dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 8px;
+    border: none;
     border-bottom: 1px solid #686868;
+    
+}
+
+.dropdown-trigger.has-value {
+    border-bottom-color: #008C45;
+}
+
+
+.selected-value.placeholder {
+    font-family: 'inter', sans-serif;
+    color: #2B2B2B;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;  
+}
+
+.selected-value {
+    color: #008C45; /* Subway 經典綠色（你也可以根據設計稿微調色碼） */
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.bottom-sheet-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.bottom-sheet-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.bottom-sheet-content {
+  width: 100%;
+  background: #ffffff;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.1, 1, 0.1, 1);
+  max-height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+.bottom-sheet-overlay.active .bottom-sheet-content {
+  transform: translateY(0);
+}
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+.sheet-header h3 { font-size: 18px; color: #333; margin: 0; }
+.sheet-close { background: none; border: none; font-size: 20px; color: #888; cursor: pointer; }
+
+.cascader-container {
+  display: flex;
+  gap: 8px;
+  height: 280px;
+  overflow: hidden;
+}
+.cascader-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.column-title {
+  font-size: 12px;
+  color: #888;
+  padding: 8px 12px;
+  background: #f1f1f1;
+  text-align: center;
+  font-weight: 500;
+}
+.cascader-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+.cascader-list li {
+  padding: 12px 10px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s, color 0.15s;
+  border-bottom: 1px solid #f0f0f0;
+}
+.cascader-list li:hover {
+  background-color: #eee;
+}
+.cascader-list li.active {
+  background-color: #fff;
+  color: #000;
+  font-weight: bold;
+  border-left: 3px solid #333;
 }
 
 
@@ -68,9 +184,11 @@
     border: none;
     font-size: 16px;
     line-height: 24px;
+    padding: 0px 8px;
     color: #2B2B2B;
     border:none;
     border-bottom: 1px solid #686868;
+    padding-bottom: 5px;
 }
 
 .table-number-input::placeholder {
@@ -84,3 +202,4 @@
 .table-number-input:focus {
     outline: none;
 }
+
