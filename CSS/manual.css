@@ -203,3 +203,46 @@ label {
     outline: none;
 }
 
+.manual-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0px 12px;
+    width: auto;
+}
+
+.manual-back-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    width: 150px;
+    height: 40px;
+
+    background-color:transparent;
+    border: 2px solid #028940;
+    border-radius: 5px;
+
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #028940;
+}
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 8px;
+    width: 150px;
+    height: 40px;
+
+    background-color:#028940;
+    border: 2px solid #028940;
+    border-radius: 5px;
+
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #FFFFFF;
+}

@@ -47,13 +47,35 @@
         0px 2px 4px 1px rgba(104, 104, 104, 0.25);
 }
 
+.card-section-title{
+    position: relative;
+
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #028940;
+    padding: 0px 8px;
+    margin: 0px 16px;
+
+}
+
+.card-section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;                     /* 貼齊標題的最左邊 */
+    top: 50%;                    /* 垂直置中對齊 */
+    transform: translateY(-50%); /* 修正垂直置中的偏離 */
+    width: 4px;                  /* 長方形的寬度 */
+    height: 24px;                /* 長方形的高度 */
+    background-color: #FFC000;   /* Subway 的經典黃色 */
+    border-radius: 2px;          /* 讓長方形的兩端變成圓角（選填） */
+}
+
 
 
 .card-section{
-    display: flex;             /* 1. 宣告為 Flex 容器 */
-    justify-content:space-between;
-    flex-direction:row;    /* 2. 設定為垂直上下排列 */
-    align-items: center;
+    display: grid;             /* 1. 宣告為 Flex 容器 */
+    grid-template-columns: repeat(2, 1fr); /* 設定為 2 等分欄位（1行2列） */
     gap: 8px;
     padding: 0px 12px;
     width: auto;
@@ -64,7 +86,7 @@
     display: flex;             /* 1. 宣告為 Flex 容器 */
     flex-direction:column;    /* 2. 設定為垂直上下排列 */
     text-align: left;
-    width: 160px;
+    width: 100%;
     padding: 12px;
     gap: 8PX;
 
@@ -74,9 +96,11 @@
 
     font-size: 16px;
     line-height: 1.5;
+    box-sizing: border-box;
 
 
 }
+
 
 .card-img{
     position: relative; 
@@ -134,7 +158,7 @@
     padding: 8px 16px;
 }
 
-.bottom-btn{
+.next-btn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -148,7 +172,7 @@
     border-radius: 5px;
 
 }
-.bottom-btn-icon{
+.next-btn-icon{
     display: flex;
     justify-content: center;
     align-items: center;
