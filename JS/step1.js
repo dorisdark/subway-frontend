@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedCategory = "";
     let selectedHeat = "";
 
-    // 渲染主餐卡片
+    // 3. 渲染主餐卡片
     function renderCategoryCards() {
         if (!cardSection) return;
         cardSection.innerHTML = categoryItems.map(item => `
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
-    // 渲染加熱選項卡片
+    // 4. 渲染加熱選項卡片
     function renderHeatCards() {
         if (!heatSection) return;
         heatSection.innerHTML = heatItems.map(item => `
@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
     }
 
+    // 先執行畫面渲染
     renderCategoryCards();
     renderHeatCards();
 
-    // 檢查是否該顯示「下一步」按鈕
+    // 5. 檢查是否該顯示「下一步」按鈕
     function checkAndShowNextButton() {
         if (selectedCategory === "麵包") {
             // 如果選麵包，必須連「加熱選項」也選了才顯示下一步
@@ -64,7 +65,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 監聽主餐點擊事件
+    // 6. 💡 頁面載入時：從 step.js / localStorage 把之前存的狀態讀回來並還原
+    if (typeof getOrderState === 'function') {
+        const savedState = getOrderState(); // 取得目前的點餐狀態物件
+        
+        // 如果之前有選過主餐 (category)
+        if (savedState.category) {
+            selectedCategory = savedState.category;
+            
+            // 尋找對應的主餐卡片並加上 active
+            const targetCard = cardSection.querySelector(`[data-name="${selectedCategory}"]`);
+            if (targetCard) {
+                targetCard.classList.add('active');
+            }
+
+            // 如果選的是「麵包」，要把加熱區塊展開，並還原加熱狀態
+            if (selectedCategory === "麵包") {
+                heatSection.style.display = 'grid';
+                
+                if (savedState.heat && savedState.heat !== "不適用") {
+                    selectedHeat = savedState.heat;
+                    const targetHeatCard = heatSection.querySelector(`[data-name="${selectedHeat}"]`);
+                    if (targetHeatCard) {
+                        targetHeatCard.classList.add('active');
+                    }
+                }
+            } else {
+                heatSection.style.display = 'none';
+            }
+
+            // 檢查是否要顯示下一步按鈕
+            checkAndShowNextButton();
+        }
+    }
+
+    // 7. 監聽主餐點擊事件
     if (cardSection) {
         cardSection.addEventListener('click', (e) => {
             const card = e.target.closest('.card-summary');
@@ -90,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 監聽加熱選項點擊事件
+    // 8. 監聽加熱選項點擊事件
     if (heatSection) {
         heatSection.addEventListener('click', (e) => {
             const card = e.target.closest('.heat-card');
@@ -107,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 點擊「下一步」按鈕
+    // 9. 點擊「下一步」按鈕
     if (nextStepBtn) {
         nextStepBtn.addEventListener('click', () => {
             if (!selectedCategory) return;

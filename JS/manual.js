@@ -30,8 +30,8 @@ const backBtn = document.getElementById('BackToScanner');
 // 1. 彈出與關閉面板控制
 trigger.addEventListener('click', () => overlay.classList.add('active'));
 closeBtn.addEventListener('click', () => overlay.classList.remove('active'));
-overlay.addEventListener('click', (e) => { 
-  if (e.target === overlay) overlay.classList.remove('active'); 
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) overlay.classList.remove('active');
 });
 
 // 2. 渲染縣市
@@ -41,12 +41,12 @@ function renderCities() {
     const li = document.createElement('li');
     li.textContent = city;
     if (city === currentCity) li.classList.add('active');
-    
+
     li.addEventListener('click', () => {
       currentCity = city;
       currentDistrict = ""; // 重設區域
       currentStore = "";   // 重設門市
-      
+
       renderCities();
       renderDistricts(city);
       storeList.innerHTML = ""; // 清空門市欄
@@ -59,7 +59,7 @@ function renderCities() {
 function renderDistricts(city) {
   districtList.innerHTML = "";
   const districts = storeData[city];
-  
+
   Object.keys(districts).forEach(district => {
     const li = document.createElement('li');
     li.textContent = district;
@@ -68,7 +68,7 @@ function renderDistricts(city) {
     li.addEventListener('click', () => {
       currentDistrict = district;
       currentStore = ""; // 重設門市
-      
+
       renderDistricts(city);
       renderStores(city, district);
     });
@@ -96,7 +96,7 @@ function renderStores(city, district) {
       // 更新畫面顯示文字
       displayText.textContent = fullStoreValue;
       displayText.classList.remove('placeholder');
-      
+
       // 將值賦予給隱藏的 input 供表單送出
       if (storeInput) {
         storeInput.value = fullStoreValue;
@@ -104,7 +104,7 @@ function renderStores(city, district) {
 
       // 觸發框底線與文字變為品牌綠
       trigger.classList.add('has-value');
-      
+
       setTimeout(() => {
         overlay.classList.remove('active');
       }, 200);
@@ -133,8 +133,22 @@ if (ManualForm) {
       return;
     }
 
-    console.log("表單準備送出！門市：", storeValue, "桌號：", tableNumber);
-    // 這裡可以加入你的後續跳轉或 API 呼叫邏輯
+    // 💡 【關鍵修改】重新登入門市時：
+    // 建立一個全新的訂單狀態物件：保留新選的門市與桌號，但把所有餐點選擇全部歸零！
+    const freshOrderState = {
+      store: storeValue,
+      tableNumber: tableNumber,
+      category: "",    // 主餐類別歸零
+      heat: "",        // 加熱狀態歸零
+      flavor: "",      // 口味/尺寸歸零
+      toppings: []     // 配料清單歸零
+    };
+
+    // 寫入 LocalStorage，覆蓋掉舊的點餐紀錄
+    localStorage.setItem('subway_order_state', JSON.stringify(freshOrderState));
+
+    console.log("全新點餐開始！門市：", storeValue, "桌號：", tableNumber);
+    
     window.location.href = "step1.html";
   });
 }
@@ -142,7 +156,7 @@ if (backBtn) {
   backBtn.addEventListener('click', (e) => {
     e.preventDefault(); // 防止預設行為
     console.log("「返回」按鈕被點擊了！"); // 👈 打開 F12 主控台看有沒有印出這行
-    
+
     // 💡 請把 'scanner.html' 換成你實際的掃描頁面檔名
     window.location.href = "scanner.html";
   });

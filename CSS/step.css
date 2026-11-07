@@ -14,38 +14,71 @@
     scrollbar-width: none;        /* Firefox 隱藏滾動條 */
 }
 
-.step-nav button{
-    display: flex;                /* 關鍵 1：開啟 Flexbox 布局 */
-    justify-content: center;      /* 關鍵 2：文字水平置中 */
-    align-items: center;          /* 關鍵 3：文字垂直置中 */
-
-    padding: 8px;
-    width: fit-content;
-    height: fit-content;
-
+.step-nav-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
     background-color: #F1F3F5;
     border: 2px solid rgba(2, 137, 64, 0.5);
     border-radius: 5px 5px 0px 0px;
-
     font-size: 16px;
-    line-height: 1.5;
     font-weight: bold;
+    cursor: pointer;
 }
 
-.step-nav-btn.active{
+/* 按鈕當前選中 (Active) 的外觀 */
+.step-nav-btn.active {
     color: #ffffff; 
-
     background-color: #028940;
     border: 2px solid #086834;
-    /*運用逗號串接多個陰影：
-       第 1、2 個是 Inner shadow (內陰影，加上 inset)
-       第 3 個是 Drop shadow (外陰影，不需要 inset)
-       ※ 數值請依妳在 Figma 實際設定的 X、Y、Blur、Spread 與顏色來填入 */
     box-shadow: 
         inset -3px 0px 2px 0px rgba(155, 255, 201, 0.25),
         inset 3px 3px 2px 0px rgba(155, 255, 201, 0.25),
         0px 2px 4px 1px rgba(104, 104, 104, 0.25);
 }
+
+
+
+/* 預設隱藏打勾容器 */
+.step-check-icon {
+    display: none !important;
+    width: 18px;
+    height: 18px;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-check-icon img {
+    display: none;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ----------------------------------------------------
+   狀態控制邏輯
+---------------------------------------------------- */
+
+/* 狀態 A：當步驟帶有 .completed（已完成）時，顯示容器 */
+.step-nav-btn.completed .step-check-icon {
+    display: flex !important;
+}
+
+/* 狀態 B：已完成，但【沒有被選中】(.completed 且不是 active) -> 顯示綠色 icon */
+.step-nav-btn.completed:not(.active) .step-check-icon .icon-green {
+    display: block !important;
+}
+
+/* 狀態 C：已完成，且【正在被選中】(.completed 且有 active) -> 顯示白色 icon */
+.step-nav-btn.completed.active .step-check-icon .icon-white {
+    display: block !important;
+}
+
+
+
+
 
 .card-section-title{
     position: relative;
@@ -54,7 +87,7 @@
     line-height: 1.4;
     font-weight: 700;
     color: #028940;
-    padding: 0px 8px;
+    padding: 0px 12px;
     margin: 0px 16px;
 
 }
@@ -66,9 +99,9 @@
     top: 50%;                    /* 垂直置中對齊 */
     transform: translateY(-50%); /* 修正垂直置中的偏離 */
     width: 4px;                  /* 長方形的寬度 */
-    height: 24px;                /* 長方形的高度 */
-    background-color: #FFC000;   /* Subway 的經典黃色 */
-    border-radius: 2px;          /* 讓長方形的兩端變成圓角（選填） */
+    height: 80%;                /* 長方形的高度 */
+    background-color: #FFC000;  
+    border-radius: 2px;          
 }
 
 
@@ -145,11 +178,32 @@
     
 }
 
+.card-summary.active .card-title,
+.card-summary.active .card-desc {
+    color: #ffffff;
+}
+
 .card-summary.active .radio-circle::after{
     content: "✓";               /* 打勾符號 */
     color: #009245;             /* 勾勾的顏色設為綠色 */
     font-size: 1em;        /* 會自動依據圓圈的大小成比例縮放 */
     line-height: 1;
+}
+
+.card-title {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 700;
+    color: #333333;
+}
+
+.card-desc {
+    font-family:'inter' sans-serif;
+    font-size: 10px;    
+    line-height: 1.4;
+    font-weight: 100;
+    color: #2B2B2B;
+   
 }
 
 .bottom-section{

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subway 點餐.步驟2.選擇麵包口味/尺寸</title>
+
+    <!-- reset.css跟normalize.css 都是網頁初始化CSS檔案，專案一開始都要寫入 -->
+    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/common.css">
+    <link rel="stylesheet" href="CSS/step.css">
+</head>
+
+<body>
+    <div class="phone-container">
+
+        <!-- 1. Status bar (頂部狀態列) -->
+        <div class="status-bar">
+            <!-- 狀態列內容 (時間、電量等) -->
+            <p class="time">12:00</p>
+            <div class="status-icons">
+                <span class="signal"><img src="Assets/icon/signal.svg"></span>
+                <span class="wi-fi"><img src="Assets/icon/wifi.svg"></span>
+                <span class="battery"><img src="Assets/icon/battery.svg"></span>
+            </div>
+        </div>
+
+
+        <header class="header">
+            <span class="brand-logo"><img src="Assets/img/Logo.png"></span>
+            <div class="header-title">開始點餐</div>
+            <span class="order-summary">
+                <span class="order-icon"><img src="Assets/icon/order.svg" alt="訂單內容 icon"></span>
+                <p class="order-text">訂單內容</p>
+            </span>
+        </header>
+
+        <nav class="step-nav">
+            <button class="step-nav-btn" data-step="step1.html">步驟1.選擇麵包/沙拉
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step2.html">步驟2.選擇麵包口味/尺寸
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step3.html">步驟3.選擇餐點口味
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step4.html">步驟4.選擇加量/加料(須加價)
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green" alt="已完成">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white" alt="已完成">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step5.html">步驟5.選擇蔬菜(最多選擇5種)
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green" alt="已完成">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white" alt="已完成">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step6.html">步驟6.選擇醬料(最多選擇2種)
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green" alt="已完成">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white" alt="已完成">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step7.html">步驟7.是否搭配套餐
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green" alt="已完成">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white" alt="已完成">
+                </span>
+            </button>
+            <button class="step-nav-btn" data-step="step8.html">步驟8.隨心點/飲料
+                <span class="step-check-icon">
+                    <img src="Assets/icon/checked-g.svg" class="icon-green" alt="已完成">
+                    <img src="Assets/icon/checked-w.svg" class="icon-white" alt="已完成">
+                </span>
+            </button>
+        </nav>
+
+        <!-- 2. Content (中間主要內容區，設定彈性撐開與滾動) -->
+        <main class="content">
+            <div class="card-section-title">6吋/特選雞</div>
+            <div class="card-section" id="ChickenCardSection">
+                <!-- 💡 JS 會自動依據資料渲染卡片至此 -->
+            </div>
+            <div class="card-section-title">6吋/經典牛</div>
+            <div class="card-section" id="BeefCardSection">
+                <!-- 💡 JS 會自動依據資料渲染卡片至此 -->
+            </div>
+            <div class="card-section-title">6吋/經典豬</div>
+            <div class="card-section" id="PigCardSection">
+                <!-- 💡 JS 會自動依據資料渲染卡片至此 -->
+            </div>
+            <div class="card-section-title">6吋/經典魚</div>
+            <div class="card-section" id="FishCardSection">
+                <!-- 💡 JS 會自動依據資料渲染卡片至此 -->
+            </div>
+            <div class="card-section-title">6吋/綜合百匯</div>
+            <div class="card-section" id="ComboCardSection">
+                <!-- 💡 JS 會自動依據資料渲染卡片至此 -->
+            </div>
+        </main>
+
+        <div class="bottom-section">
+            <button class="next-btn" id="NextStepBtn" style="display: none;">下一步
+                <span class="next-btn-icon">
+                    <img src="Assets/icon/right-arrow.svg" alt="下一步">
+                </span>
+            </button>
+        </div>
+
+        <!-- 3. Building Blocks/navigation (底部導覽列) -->
+        <nav class="bottom-nav-bar">
+            <!-- 底部導覽按鈕 -->
+            <button class="nav-btn_apps" aria-label="apps"></button>
+            <button class="nav-btn_home" aria-label="Home"></button>
+            <button class="nav-btn_back" aria-label="Back"></button>
+        </nav>
+        <script src="JS/step.js"></script>
+        <script src="JS/step3.js"></script>
+
+</body>
+
+</html>
